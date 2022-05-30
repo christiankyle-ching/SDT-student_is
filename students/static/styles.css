@@ -1,0 +1,4 @@
+form > p {
+  display: flex;
+  flex-direction: column;
+}

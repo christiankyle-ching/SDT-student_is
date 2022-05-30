@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="{% url 'students:create' %}" class="btn btn-primary">Add Student</a>
+
+<table class="table">
+
+    <thead>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Contact Number</th>
+        <th>Address</th>
+        <th>Admission Date</th>
+        <th>Course</th>
+        <th>Year</th>
+        <th>Section</th>
+        <th>Actions</th>
+    </thead>
+
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.first_name }}</td>
+            <td>{{ student.middle_name }}</td>
+            <td>{{ student.last_name }}</td>
+            <td>{{ student.gender }}</td>
+            <td>{{ student.contact_number }}</td>
+            <td>{{ student.address }}</td>
+            <td>{{ student.admit_date }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.year }}</td>
+            <td>{{ student.section }}</td>
+            <td>
+                <a href="{% url 'students:update' student.pk %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'students:delete' student.pk %}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+
+</table>
+
+{% endblock content %}
